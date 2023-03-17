@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data e Hora</title>
+    <style>
+        body {
+            background-color: rgb(179, 206, 196);
+        }
+        .conteúdo {
+            width: 250px;
+            height: 150px;
+            background: #8fb1b3;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 30px;
+            font-weight: bolder;
+            text-decoration: solid;
+            }
+            h1 {
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 50px;
+                text-align: center;
+                text-shadow:10px 10px 10px rgba(0, 0, 0, 0.5);
+                white-space: nowrap;
+            
+            }
+            footer {
+                position: fixed;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+                width: 100%;
+                padding: 20px;
+                font-weight: bold;
+                text-decoration: black;
+                
+              }
+                           
+              
+              
+
+    </style>
+
+</head>
+<body>
+    
+    <div> <h1>A sua data e hora sempre certas!</h1></div>
+    
+    <div class="conteúdo">
+        Data: <span id="data"></span>
+        <br><br>
+        Hora: <span id="hora"></span>
+      </div>
+
+    <footer>
+        <p>
+        <a href="https://github.com/arthurgmv" target="_blank">Arthur Gabriel</a>
+        </p>    
+    </footer>
+<script>
+    var dataElement = document.getElementById('data');
+    var horaElement = document.getElementById('hora');
+
+    setInterval(function() {
+        var data = new Date();
+        var dataFormatada = (data.getDate() < 10 ? '0' : '') + data.getDate() + '/'
+        + ((data.getMonth() + 1) < 10 ? '0' : '') + (data.getMonth() + 1) + '/'
+        + data.getFullYear();
+var horaFormatada = (data.getHours() < 10 ? '0' : '') + data.getHours() + ':'
+        + (data.getMinutes() < 10 ? '0' : '') + data.getMinutes() + ':'
+        + (data.getSeconds() < 10 ? '0' : '') + data.getSeconds();
+        dataElement.innerHTML = dataFormatada;
+        horaElement.innerHTML = horaFormatada;
+        }, 1000); 
+</script>
+</body>
+</html>
